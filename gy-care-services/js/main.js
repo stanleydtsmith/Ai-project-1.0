@@ -46,13 +46,13 @@
     var toggleBtns = document.querySelectorAll(".intent-btn");
     var copy = {
       staff: {
-        messageLabel: "How can we help?",
+        messageLabel: "How can we help you?",
         messagePlaceholder: "Tell us about your staffing needs, or the role you're interested in",
         submitLabel: "Send Message"
       },
       apply: {
-        messageLabel: "CV / experience summary",
-        messagePlaceholder: "Tell us about your experience, qualifications and availability",
+        messageLabel: "Brief description of your experience in healthcare",
+        messagePlaceholder: "Tell us about your experience and qualifications",
         submitLabel: "Submit Application"
       }
     };
@@ -67,7 +67,7 @@
       contactForm.querySelectorAll("[data-intent-fields]").forEach(function (group) {
         var match = group.getAttribute("data-intent-fields") === intent;
         group.hidden = !match;
-        group.querySelectorAll("select").forEach(function (el) {
+        group.querySelectorAll("input:not([type=checkbox]), select").forEach(function (el) {
           el.required = match;
         });
       });
@@ -75,6 +75,8 @@
       messageField.placeholder = copy[intent].messagePlaceholder;
       submitBtn.textContent = copy[intent].submitLabel;
     }
+
+    setIntent("staff");
 
     toggleBtns.forEach(function (btn) {
       btn.addEventListener("click", function () {

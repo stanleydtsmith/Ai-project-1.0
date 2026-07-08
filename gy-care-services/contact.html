@@ -81,16 +81,17 @@
               <input id="name" name="name" type="text" autocomplete="name" required>
             </div>
             <div class="field">
-              <label for="email">Email address</label>
-              <input id="email" name="email" type="email" autocomplete="email" required>
-            </div>
-          </div>
-          <div class="form-row two" style="margin-top:18px;">
-            <div class="field">
               <label for="phone">Phone number</label>
               <input id="phone" name="phone" type="tel" autocomplete="tel" required>
             </div>
-            <div class="field" data-intent-fields="staff">
+          </div>
+
+          <div class="form-row two" data-intent-fields="staff" style="margin-top:18px;">
+            <div class="field">
+              <label for="email">Email address</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="field">
               <label for="type">I am a...</label>
               <select id="type" name="enquiry_type" required>
                 <option value="">Select one</option>
@@ -100,7 +101,14 @@
                 <option>Other</option>
               </select>
             </div>
-            <div class="field" data-intent-fields="apply" hidden>
+          </div>
+
+          <div class="form-row two" data-intent-fields="apply" hidden style="margin-top:18px;">
+            <div class="field">
+              <label for="address">Address</label>
+              <input id="address" name="address" type="text" autocomplete="street-address">
+            </div>
+            <div class="field">
               <label for="role">Role you're applying for</label>
               <select id="role" name="role">
                 <option value="">Select a role</option>
@@ -112,14 +120,38 @@
               </select>
             </div>
           </div>
+
           <div class="field" style="margin-top:18px;">
-            <label for="message" id="messageLabel">How can we help?</label>
+            <label for="message" id="messageLabel">How can we help you?</label>
             <textarea id="message" name="message" placeholder="Tell us about your staffing needs, or the role you're interested in" required></textarea>
           </div>
-          <div class="field" data-intent-fields="apply" hidden style="margin-top:18px;">
-            <label for="cv">Upload CV <span class="hint">(optional)</span></label>
-            <input id="cv" name="cv" type="file" accept=".pdf,.doc,.docx">
+
+          <div data-intent-fields="apply" hidden>
+            <div class="field" style="margin-top:18px;">
+              <label>Availability</label>
+              <div class="checkbox-row">
+                <label><input type="checkbox" name="availability" value="Full-time"> Full-time</label>
+                <label><input type="checkbox" name="availability" value="Part-time"> Part-time</label>
+                <label><input type="checkbox" name="availability" value="Nights"> Nights</label>
+                <label><input type="checkbox" name="availability" value="Weekends"> Weekends</label>
+              </div>
+            </div>
+            <div class="form-row two" style="margin-top:18px;">
+              <div class="field">
+                <label for="location">Location</label>
+                <input id="location" name="location" type="text" placeholder="Which area are you available to work in?">
+              </div>
+              <div class="field">
+                <label for="rtw">Right to work in the UK</label>
+                <select id="rtw" name="right_to_work">
+                  <option value="">Select one</option>
+                  <option>Yes</option>
+                  <option>No</option>
+                </select>
+              </div>
+            </div>
           </div>
+
           <button class="btn btn-primary" type="submit" id="submitBtn" style="margin-top:18px;">Send Message</button>
         </form>
       </div>
