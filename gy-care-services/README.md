@@ -2,7 +2,8 @@
 
 Marketing website for GY Care Services, a nurse-led UK healthcare staffing
 agency supplying qualified, compassionate professionals to care homes,
-hospitals and private clients.
+hospitals and private clients. Based in Ipswich, Suffolk — serving clients
+UK-wide.
 
 ## Run it
 
@@ -19,28 +20,32 @@ No build step, no dependencies — plain HTML/CSS/JS, ready to host anywhere
 
 - `index.html` — Home
 - `services.html` — Care Homes / Hospitals / Private Clients, staffing models, compliance
-- `about.html` — Company story, mission, why choose us
-- `careers.html` — Join the team + application form
-- `testimonials.html` — Client & staff quotes
-- `contact.html` — Enquiry form + contact details
+- `about.html` — Company story, mission
+- `careers.html` — Why work here, roles, links to the application form
+- `contact.html` — One form covering both staffing enquiries and job applications
+  (toggle between "Request Staff" and "Join the Team"), plus contact details
 
 ## Before going live
 
-1. **Contact details** — replace every `[Add phone number]` / `[Add email address]`
-   placeholder (footer on every page, and the Contact page) with your real details.
-2. **Forms** — the enquiry form (`contact.html`) and application form
-   (`careers.html`) currently show a client-side "success" message but don't
-   send anywhere. Point their `<form action="...">` at a form backend, e.g.:
+1. **Phone number** — the business doesn't have one listed yet. Once you have
+   one, add it to the "Get in touch directly" list on `contact.html` and to
+   the footer `<ul>` on every page (search for "Ipswich, Suffolk, UK" — add a
+   phone `<li>` alongside it).
+2. **Forms** — the combined enquiry/application form on `contact.html` shows
+   a client-side "success" message but doesn't send anywhere yet. Point its
+   `<form action="...">` at a form backend, e.g.:
    - [Formspree](https://formspree.io) (supports file uploads on paid plans)
    - [Netlify Forms](https://docs.netlify.com/manage/forms/) (if hosting on Netlify)
    - Your own form-handling endpoint
    Once you have an endpoint, replace `REPLACE_WITH_YOUR_FORM_ENDPOINT` in
-   both files' `<form action="...">` attributes.
-3. **Testimonials** — `testimonials.html` (and the two teaser quotes on the
-   Home page) use sample quotes for layout. Swap in real client/staff
-   feedback — see the note under the section heading.
+   that file's `<form action="...">` attribute.
+3. **Testimonials** — deliberately left off since the business is new. Once
+   you have real client/staff feedback, it's easy to add a short quotes
+   section back in (e.g. on the Home page) — just ask.
 4. **Logo** — the header/footer use a recreated SVG shield + pulse mark
-   matching your brand colours. If you have the original logo file, swap the
+   matching your brand colours, and the illustrated "staff" graphics on
+   Home/About/Careers are custom flat-style avatars in the same palette
+   (no stock photography used). If you have the original logo file, swap the
    inline `<svg class="brand-mark">` for an `<img>` tag pointing at it.
 5. **CQC/DBS specifics** — the Services page describes vetting in general
    terms (identity checks, DBS, training, references). Add your actual CQC
@@ -49,7 +54,8 @@ No build step, no dependencies — plain HTML/CSS/JS, ready to host anywhere
 ## Structure
 
 - `css/style.css` — all styling, design tokens at the top (`:root` variables)
-- `js/main.js` — mobile nav toggle, scroll-reveal for the pulse dividers, form handling
+- `js/main.js` — mobile nav toggle, scroll-reveal for the pulse dividers,
+  contact/apply intent toggle, form handling
 - `images/favicon.svg` — browser tab icon (shield + pulse mark)
 
 ## Design notes
@@ -60,4 +66,9 @@ Plex Mono (labels/captions), loaded from Google Fonts.
 
 The heartbeat/EKG pulse line from the GY Care Services logo is used as the
 site's recurring signature element — it appears in the hero, as animated
-section dividers, and in the brand mark — rather than as one-off decoration.
+section dividers, and in the brand mark. The illustrated avatar figures
+(hero, About, Careers) extend the same visual language (brand-gradient
+"person" shapes) rather than using stock photography.
+
+`contact.html?intent=apply` pre-selects the "Join the Team" mode of the
+contact form — used by the Careers page's "Start Your Application" button.

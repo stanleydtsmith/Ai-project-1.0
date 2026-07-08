@@ -36,7 +36,6 @@
       <a href="services.html">Services</a>
       <a href="about.html">About</a>
       <a href="careers.html">Careers</a>
-      <a href="testimonials.html">Testimonials</a>
       <a href="contact.html" aria-current="page">Contact</a>
     </nav>
 
@@ -67,8 +66,15 @@
   <section class="section">
     <div class="container grid grid-2">
       <div class="form-card">
-        <div class="form-success" role="status">Thanks for reaching out — we'll be in touch shortly.</div>
-        <form data-form action="REPLACE_WITH_YOUR_FORM_ENDPOINT" method="POST">
+        <div class="form-success" role="status">Thanks — we've got your message and will be in touch shortly.</div>
+
+        <div class="intent-toggle" role="tablist" aria-label="Choose what you need">
+          <button type="button" class="intent-btn is-active" data-intent="staff" role="tab" aria-selected="true" id="intentStaffBtn">Request Staff</button>
+          <button type="button" class="intent-btn" data-intent="apply" role="tab" aria-selected="false" id="intentApplyBtn">Join the Team</button>
+        </div>
+
+        <form data-form action="REPLACE_WITH_YOUR_FORM_ENDPOINT" method="POST" id="contactForm">
+          <input type="hidden" name="intent" id="intentField" value="staff">
           <div class="form-row two">
             <div class="field">
               <label for="name">Full name</label>
@@ -84,24 +90,37 @@
               <label for="phone">Phone number</label>
               <input id="phone" name="phone" type="tel" autocomplete="tel" required>
             </div>
-            <div class="field">
+            <div class="field" data-intent-fields="staff">
               <label for="type">I am a...</label>
               <select id="type" name="enquiry_type" required>
                 <option value="">Select one</option>
                 <option>Care Home</option>
                 <option>Hospital</option>
                 <option>Private Client / Family</option>
-                <option>Healthcare Professional</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field" data-intent-fields="apply" hidden>
+              <label for="role">Role you're applying for</label>
+              <select id="role" name="role">
+                <option value="">Select a role</option>
+                <option>Registered Nurse</option>
+                <option>Healthcare Assistant</option>
+                <option>Support Worker</option>
+                <option>Live-in / Private Carer</option>
                 <option>Other</option>
               </select>
             </div>
           </div>
           <div class="field" style="margin-top:18px;">
-            <label for="message">How can we help?</label>
+            <label for="message" id="messageLabel">How can we help?</label>
             <textarea id="message" name="message" placeholder="Tell us about your staffing needs, or the role you're interested in" required></textarea>
           </div>
-          <button class="btn btn-primary" type="submit" style="margin-top:18px;">Send Message</button>
-          <p class="form-note">Looking to apply for a role instead? Visit our <a href="careers.html">Careers page</a>.</p>
+          <div class="field" data-intent-fields="apply" hidden style="margin-top:18px;">
+            <label for="cv">Upload CV <span class="hint">(optional)</span></label>
+            <input id="cv" name="cv" type="file" accept=".pdf,.doc,.docx">
+          </div>
+          <button class="btn btn-primary" type="submit" id="submitBtn" style="margin-top:18px;">Send Message</button>
         </form>
       </div>
 
@@ -111,19 +130,19 @@
         <ul class="contact-list" style="margin-top:2em;">
           <li>
             <span class="ic" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 4h16v16H4z" opacity="0"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/></svg>
             </span>
-            <span><strong>Email</strong><a href="#">[Add email address]</a></span>
-          </li>
-          <li>
-            <span class="ic" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-            </span>
-            <span><strong>Phone</strong><a href="#">[Add phone number]</a></span>
+            <span><strong>Email</strong><a href="mailto:gy.care.services@gmail.com">gy.care.services@gmail.com</a></span>
           </li>
           <li>
             <span class="ic" aria-hidden="true">
               <svg width="18" height="18" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-4.35-9.5-9A5.5 5.5 0 0112 5.5 5.5 5.5 0 0121.5 12c-2.5 4.65-9.5 9-9.5 9z"/></svg>
+            </span>
+            <span><strong>Location</strong>Ipswich, Suffolk, UK</span>
+          </li>
+          <li>
+            <span class="ic" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 21V10l9-6 9 6v11M9 21v-6h6v6"/></svg>
             </span>
             <span><strong>Coverage</strong>UK-wide — care homes, hospitals &amp; private clients</span>
           </li>
@@ -134,7 +153,6 @@
             <span><strong>Availability</strong>24/7 for urgent staffing needs</span>
           </li>
         </ul>
-        <p class="placeholder-note" style="margin-top:2em;">Bracketed items above are placeholders — send over your real phone number and email and we'll drop them straight in before launch.</p>
       </div>
     </div>
   </section>
@@ -166,7 +184,6 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="testimonials.html">Testimonials</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -180,8 +197,8 @@
       <div class="footer-col">
         <h4>Contact</h4>
         <ul>
-          <li>[Add email address]</li>
-          <li>[Add phone number]</li>
+          <li><a href="mailto:gy.care.services@gmail.com">gy.care.services@gmail.com</a></li>
+          <li>Ipswich, Suffolk, UK</li>
           <li>UK-wide coverage · Available 24/7</li>
         </ul>
       </div>

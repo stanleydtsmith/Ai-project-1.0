@@ -36,7 +36,6 @@
       <a href="services.html">Services</a>
       <a href="about.html">About</a>
       <a href="careers.html" aria-current="page">Careers</a>
-      <a href="testimonials.html">Testimonials</a>
       <a href="contact.html">Contact</a>
     </nav>
 
@@ -52,11 +51,35 @@
 
 <main id="main">
 
-  <section class="page-intro">
+  <section class="page-intro has-art">
     <div class="container">
-      <p class="eyebrow">Careers</p>
-      <h1>Bring your compassion to a team that values it.</h1>
-      <p class="hero-lede">Are you a compassionate and reliable healthcare professional looking for flexible work opportunities? Join GY Care Services and become part of a dedicated team supporting care homes and healthcare providers across the UK.</p>
+      <div>
+        <p class="eyebrow">Careers</p>
+        <h1>Bring your compassion to a team that values it.</h1>
+        <p class="hero-lede">Are you a compassionate and reliable healthcare professional looking for flexible work opportunities? Join GY Care Services and become part of a dedicated team supporting care homes and healthcare providers across the UK.</p>
+      </div>
+      <svg class="intro-art" viewBox="0 0 460 280" aria-hidden="true">
+        <defs>
+          <linearGradient id="teamGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#1B6FB5"/>
+            <stop offset="1" stop-color="#14B8A6"/>
+          </linearGradient>
+        </defs>
+        <g opacity="0.55">
+          <path d="M65,226 Q65,152 130,152 Q195,152 195,226 L195,238 L65,238 Z" fill="url(#teamGrad)"/>
+          <circle cx="130" cy="112" r="38" fill="#EAF1F5"/>
+        </g>
+        <path d="M162,251 Q162,150 250,150 Q338,150 338,251 L338,264 L162,264 Z" fill="url(#teamGrad)"/>
+        <circle cx="250" cy="95" r="52" fill="#EAF1F5"/>
+        <path d="M222,152 C222,175 228,198 250,200 C272,198 278,175 278,152" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+        <circle cx="222" cy="150" r="5" fill="#ffffff"/>
+        <circle cx="278" cy="150" r="5" fill="#ffffff"/>
+        <circle cx="250" cy="200" r="7" fill="#ffffff"/>
+        <g opacity="0.55">
+          <path d="M309,220 Q309,150 370,150 Q431,150 431,220 L431,232 L309,232 Z" fill="url(#teamGrad)"/>
+          <circle cx="370" cy="112" r="36" fill="#EAF1F5"/>
+        </g>
+      </svg>
     </div>
   </section>
 
@@ -104,10 +127,10 @@
   </section>
 
   <section class="section section-alt">
-    <div class="container grid grid-2">
+    <div class="container grid grid-2" style="align-items:center;">
       <div>
         <p class="eyebrow">Apply today</p>
-        <h2>Apply by completing the form, or email us directly.</h2>
+        <h2>Ready to join us?</h2>
         <p>Tell us a little about your experience and the kind of work you're looking for. Our nurse-led team reviews every application personally.</p>
         <ul class="value-list" style="margin-top:2em;">
           <li>
@@ -135,50 +158,14 @@
             <span><strong>Live-in &amp; private carers</strong></span>
           </li>
         </ul>
-        <p class="form-note">Prefer email? Send your CV to <strong>[Add recruitment email address]</strong> instead.</p>
       </div>
 
-      <div class="form-card">
-        <div class="form-success" role="status">Thanks — your application has been received. We'll be in touch soon.</div>
-        <form data-form action="REPLACE_WITH_YOUR_FORM_ENDPOINT" method="POST">
-          <div class="form-row two">
-            <div class="field">
-              <label for="c-name">Full name</label>
-              <input id="c-name" name="name" type="text" autocomplete="name" required>
-            </div>
-            <div class="field">
-              <label for="c-email">Email address</label>
-              <input id="c-email" name="email" type="email" autocomplete="email" required>
-            </div>
-          </div>
-          <div class="form-row two" style="margin-top:18px;">
-            <div class="field">
-              <label for="c-phone">Phone number</label>
-              <input id="c-phone" name="phone" type="tel" autocomplete="tel" required>
-            </div>
-            <div class="field">
-              <label for="c-role">Role you're applying for</label>
-              <select id="c-role" name="role" required>
-                <option value="">Select a role</option>
-                <option>Registered Nurse</option>
-                <option>Healthcare Assistant</option>
-                <option>Support Worker</option>
-                <option>Live-in / Private Carer</option>
-                <option>Other</option>
-              </select>
-            </div>
-          </div>
-          <div class="field" style="margin-top:18px;">
-            <label for="c-cv">CV / experience summary</label>
-            <textarea id="c-cv" name="message" placeholder="Tell us about your experience, qualifications and availability" required></textarea>
-          </div>
-          <div class="field" style="margin-top:18px;">
-            <label for="c-file">Upload CV <span class="hint">(optional)</span></label>
-            <input id="c-file" name="cv" type="file" accept=".pdf,.doc,.docx">
-          </div>
-          <p class="form-note">By submitting, you agree to be contacted about roles at GY Care Services.</p>
-          <button class="btn btn-primary" type="submit" style="margin-top:18px;">Submit Application</button>
-        </form>
+      <div class="card text-center">
+        <p class="eyebrow">Apply now</p>
+        <h3 class="mt-0">Use our quick application form.</h3>
+        <p>It only takes a couple of minutes — tell us about yourself and we'll be in touch.</p>
+        <a class="btn btn-primary" href="contact.html?intent=apply">Start Your Application</a>
+        <p class="form-note">Prefer email? Write to <a href="mailto:gy.care.services@gmail.com">gy.care.services@gmail.com</a> instead.</p>
       </div>
     </div>
   </section>
@@ -210,7 +197,6 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="testimonials.html">Testimonials</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -224,8 +210,8 @@
       <div class="footer-col">
         <h4>Contact</h4>
         <ul>
-          <li>[Add email address]</li>
-          <li>[Add phone number]</li>
+          <li><a href="mailto:gy.care.services@gmail.com">gy.care.services@gmail.com</a></li>
+          <li>Ipswich, Suffolk, UK</li>
           <li>UK-wide coverage · Available 24/7</li>
         </ul>
       </div>
