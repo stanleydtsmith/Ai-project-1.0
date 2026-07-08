@@ -18,12 +18,16 @@ No build step, no dependencies — plain HTML/CSS/JS, ready to host anywhere
 
 ## Pages
 
-- `index.html` — Home
+- `index.html` — Home. A single combined CTA ("Need staff, or want to join
+  our team?") sits early on the page and scrolls down to the same
+  Request Staff / Join the Team form embedded at the bottom — no separate
+  page visit needed for the common case.
 - `services.html` — Care Homes / Hospitals / Private Clients, staffing models, compliance
 - `about.html` — Company story, mission
 - `careers.html` — Why work here, roles, links to the application form
-- `contact.html` — One form covering both staffing enquiries and job applications
-  (toggle between "Request Staff" and "Join the Team"), plus contact details
+- `contact.html` — The same Request Staff / Join the Team form as Home, for
+  anyone who lands directly on this page (e.g. from the header/footer links
+  on Services, About or Careers) rather than starting from Home
 
 ## Before going live
 
@@ -35,11 +39,13 @@ No build step, no dependencies — plain HTML/CSS/JS, ready to host anywhere
    site with no server, so right now submitting either mode of the form just
    shows an on-page "thanks" message in the visitor's browser — no email, no
    database, nothing is actually sent or stored anywhere. To make it real,
-   point the `<form action="...">` in `contact.html` at a form backend:
+   sign up for a form backend and paste its endpoint over
+   `REPLACE_WITH_YOUR_FORM_ENDPOINT` in **both** `<form action="...">` tags
+   — one in `index.html`, one in `contact.html` (they're two independent
+   copies of the same form):
    - [Formspree](https://formspree.io) — easiest option. Free plan, no code:
      sign up, create a form, it gives you an endpoint URL and forwards every
-     submission straight to your inbox (gy.care.services@gmail.com). Paste
-     that URL in place of `REPLACE_WITH_YOUR_FORM_ENDPOINT`.
+     submission straight to your inbox (gy.care.services@gmail.com).
    - [Netlify Forms](https://docs.netlify.com/manage/forms/) — free if the
      site ends up hosted on Netlify; detects the form automatically.
    - Your own backend/endpoint, if you'd rather build one.

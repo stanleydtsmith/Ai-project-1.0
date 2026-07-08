@@ -131,13 +131,13 @@
     <div class="container">
       <div class="cta-band">
         <div>
-          <p class="eyebrow">Need reliable healthcare staff?</p>
-          <h2>Contact GY Care Services today.</h2>
-          <p>Discuss your staffing needs or apply to join our team — we're available 24/7 to support you. We offer temporary staffing, permanent placements and emergency cover.</p>
+          <p class="eyebrow">Get in touch</p>
+          <h2>Need staff, or want to join our team?</h2>
+          <p>Whatever brings you here, GY Care Services is ready to help — request staffing support or apply to join a nurse-led team, available 24/7.</p>
         </div>
         <div class="cta-actions">
-          <a class="btn btn-amber" href="contact.html">Request Staff</a>
-          <a class="btn btn-ghost" href="careers.html">Apply to Join</a>
+          <a class="btn btn-amber" href="#get-in-touch" data-set-intent="staff">Request Staff</a>
+          <a class="btn btn-ghost" href="#get-in-touch" data-set-intent="apply">Join Our Team</a>
         </div>
       </div>
     </div>
@@ -147,16 +147,133 @@
     <path d="M0 23 H460 L490 4 L525 42 L560 12 L585 23 H1180"/>
   </svg>
 
-  <section class="section section-alt">
+  <section class="section" id="get-in-touch">
     <div class="container">
-      <div class="cta-band">
-        <div>
-          <p class="eyebrow">Join our team</p>
-          <h2>Bring your compassion to a team that values it.</h2>
-          <p>Looking for flexible healthcare work? Join GY Care Services and become part of a dedicated team supporting care homes and healthcare providers across the UK.</p>
+      <div class="section-head center">
+        <p class="eyebrow">Contact us</p>
+        <h2>Let's get you sorted.</h2>
+      </div>
+      <div class="grid grid-2">
+        <div class="form-card">
+          <div class="form-success" role="status">Thanks — we've got your message and will be in touch shortly.</div>
+
+          <div class="intent-toggle" role="tablist" aria-label="Choose what you need">
+            <button type="button" class="intent-btn is-active" data-intent="staff" role="tab" aria-selected="true" id="intentStaffBtn">Request Staff</button>
+            <button type="button" class="intent-btn" data-intent="apply" role="tab" aria-selected="false" id="intentApplyBtn">Join the Team</button>
+          </div>
+
+          <form data-form action="REPLACE_WITH_YOUR_FORM_ENDPOINT" method="POST" id="contactForm">
+            <input type="hidden" name="intent" id="intentField" value="staff">
+            <div class="form-row two">
+              <div class="field">
+                <label for="name">Full name</label>
+                <input id="name" name="name" type="text" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="phone">Phone number</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+              </div>
+            </div>
+
+            <div class="form-row two" data-intent-fields="staff" style="margin-top:18px;">
+              <div class="field">
+                <label for="email">Email address</label>
+                <input id="email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <div class="field">
+                <label for="type">I am a...</label>
+                <select id="type" name="enquiry_type" required>
+                  <option value="">Select one</option>
+                  <option>Care Home</option>
+                  <option>Hospital</option>
+                  <option>Private Client / Family</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row two" data-intent-fields="apply" hidden style="margin-top:18px;">
+              <div class="field">
+                <label for="address">Address</label>
+                <input id="address" name="address" type="text" autocomplete="street-address">
+              </div>
+              <div class="field">
+                <label for="role">Role you're applying for</label>
+                <select id="role" name="role">
+                  <option value="">Select a role</option>
+                  <option>Registered Nurse</option>
+                  <option>Healthcare Assistant</option>
+                  <option>Support Worker</option>
+                  <option>Live-in / Private Carer</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field" style="margin-top:18px;">
+              <label for="message" id="messageLabel">How can we help you?</label>
+              <textarea id="message" name="message" placeholder="Tell us about your staffing needs, or the role you're interested in" required></textarea>
+            </div>
+
+            <div data-intent-fields="apply" hidden>
+              <div class="field" style="margin-top:18px;">
+                <label>Availability</label>
+                <div class="checkbox-row">
+                  <label><input type="checkbox" name="availability" value="Full-time"> Full-time</label>
+                  <label><input type="checkbox" name="availability" value="Part-time"> Part-time</label>
+                  <label><input type="checkbox" name="availability" value="Nights"> Nights</label>
+                  <label><input type="checkbox" name="availability" value="Weekends"> Weekends</label>
+                </div>
+              </div>
+              <div class="form-row two" style="margin-top:18px;">
+                <div class="field">
+                  <label for="location">Location</label>
+                  <input id="location" name="location" type="text" placeholder="Which area are you available to work in?">
+                </div>
+                <div class="field">
+                  <label for="rtw">Right to work in the UK</label>
+                  <select id="rtw" name="right_to_work">
+                    <option value="">Select one</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn btn-primary" type="submit" id="submitBtn" style="margin-top:18px;">Send Message</button>
+          </form>
         </div>
-        <div class="cta-actions">
-          <a class="btn btn-amber" href="careers.html">View Career Opportunities</a>
+
+        <div>
+          <p class="eyebrow">Get in touch directly</p>
+          <h2 class="mt-0">Available 24/7 for urgent staffing needs.</h2>
+          <ul class="contact-list" style="margin-top:2em;">
+            <li>
+              <span class="ic" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+              </span>
+              <span><strong>Email</strong><a href="mailto:gy.care.services@gmail.com">gy.care.services@gmail.com</a></span>
+            </li>
+            <li>
+              <span class="ic" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-4.35-9.5-9A5.5 5.5 0 0112 5.5 5.5 5.5 0 0121.5 12c-2.5 4.65-9.5 9-9.5 9z"/></svg>
+              </span>
+              <span><strong>Location</strong>Ipswich, Suffolk, UK</span>
+            </li>
+            <li>
+              <span class="ic" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 21V10l9-6 9 6v11M9 21v-6h6v6"/></svg>
+              </span>
+              <span><strong>Coverage</strong>UK-wide — care homes, hospitals &amp; private clients</span>
+            </li>
+            <li>
+              <span class="ic" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </span>
+              <span><strong>Availability</strong>24/7 for urgent staffing needs</span>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

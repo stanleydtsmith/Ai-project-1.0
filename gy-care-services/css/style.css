@@ -370,6 +370,7 @@ img, svg { max-width: 100%; }
 
 /* ---------------- Sections ---------------- */
 .section { padding: 88px 0; }
+.section[id] { scroll-margin-top: 84px; }
 .section-alt { background: var(--mist-deep); }
 .section-ink { background: var(--ink); color: var(--white); }
 .section-ink h2, .section-ink h3 { color: var(--white); }

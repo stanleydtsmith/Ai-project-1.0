@@ -88,6 +88,14 @@
     if (params.get("intent") === "apply") {
       setIntent("apply");
     }
+
+    // Same-page CTA buttons (e.g. the combined Home page CTA) that link to
+    // the embedded form and should pre-select a mode on click.
+    document.querySelectorAll("[data-set-intent]").forEach(function (link) {
+      link.addEventListener("click", function () {
+        setIntent(link.getAttribute("data-set-intent"));
+      });
+    });
   }
 
   // Forms: lightweight client-side handling.
