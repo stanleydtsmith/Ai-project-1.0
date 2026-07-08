@@ -57,10 +57,11 @@ No build step, no dependencies — plain HTML/CSS/JS, ready to host anywhere
    you have real client/staff feedback, it's easy to add a short quotes
    section back in (e.g. on the Home page) — just ask.
 4. **Logo** — the header/footer use a recreated SVG shield + pulse mark
-   matching your brand colours, and the illustrated "staff" graphics on
-   Home/About/Careers are custom flat-style avatars in the same palette
-   (no stock photography used). If you have the original logo file, swap the
+   matching your brand colours. If you have the original logo file, swap the
    inline `<svg class="brand-mark">` for an `<img>` tag pointing at it.
+   Home and Careers still use the custom flat-style avatar illustrations;
+   About now uses your real photo (`images/caregiver.jpg`) — send over more
+   photos any time and I'll swap them into Home, Services or Careers too.
 5. **CQC/DBS specifics** — the Services page describes vetting in general
    terms (identity checks, DBS, training, references). Add your actual CQC
    registration number or accreditation details if you'd like them displayed.
