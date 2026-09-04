@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>StanUGC — Outdoor & Adventure UGC Creator</title>
-<meta name="description" content="StanUGC creates scroll-stopping outdoor, nature, camping and adventure content that makes brands feel the wild. Portfolio, trips and video work." />
+<meta name="description" content="StanUGC — a university student creating outdoor, nature, camping, adventure and travel UGC that makes brands feel the wild. Intro, trips, brand work and contact." />
 <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,8 +24,8 @@
 
   <nav class="nav-links" id="navLinks">
     <a href="#about">About</a>
-    <a href="#trips">Trips</a>
-    <a href="#work">Work</a>
+    <a href="#places">Places</a>
+    <a href="#work">Brand work</a>
     <a href="#contact" class="nav-cta">Work with me</a>
   </nav>
 
@@ -36,67 +36,70 @@
 
 <!-- ===== Hero ===== -->
 <section id="top" class="hero">
-  <div class="hero-bg" aria-hidden="true">
-    <svg class="ridge ridge-back" viewBox="0 0 1440 320" preserveAspectRatio="none"><path d="M0,224 L120,197 240,240 360,181 480,213 600,160 720,208 840,165 960,213 1080,176 1200,224 1320,192 1440,229 L1440,320 L0,320 Z"/></svg>
-    <svg class="ridge ridge-mid" viewBox="0 0 1440 320" preserveAspectRatio="none"><path d="M0,256 L160,224 320,272 480,213 640,256 800,208 960,261 1120,224 1280,266 1440,240 L1440,320 L0,320 Z"/></svg>
-    <svg class="ridge ridge-front" viewBox="0 0 1440 320" preserveAspectRatio="none"><path d="M0,288 L180,256 360,293 540,261 720,288 900,256 1080,293 1260,261 1440,288 L1440,320 L0,320 Z"/></svg>
-  </div>
-
+  <img class="hero-photo" src="images/hero-dolomites.jpeg" alt="" aria-hidden="true" />
+  <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-inner">
-    <p class="eyebrow reveal">Outdoors · Nature · Camping · Adventure · Travel</p>
-    <h1 class="reveal">Outdoor UGC that makes brands <em>feel the wild.</em></h1>
-    <p class="hero-sub reveal">I'm Stan — a creator who takes gear, brands and stories into the backcountry and comes back with content that stops the scroll. Authentic, cinematic, and built to convert.</p>
-    <div class="hero-actions reveal">
-      <a href="#work" class="btn btn-primary">Watch my work</a>
-      <a href="#contact" class="btn btn-ghost">Work with me</a>
+    <p class="eyebrow">Outdoors · Nature · Camping · Adventure · Travel</p>
+    <h1>Outdoor UGC that makes brands <em>feel the wild.</em></h1>
+    <p class="hero-sub">I'm Stan — a creator who takes gear, brands and stories into the mountains and comes back with content that stops the scroll.</p>
+    <div class="hero-actions">
+      <a href="#work" class="btn btn-primary">See my brand work</a>
+      <a href="#contact" class="btn btn-ghost light">Work with me</a>
     </div>
   </div>
-
   <a href="#about" class="scroll-hint" aria-label="Scroll down">↓</a>
 </section>
 
 <!-- ===== About ===== -->
 <section id="about" class="section about">
   <div class="section-head reveal">
-    <span class="kicker">01 — About</span>
-    <h2>Behind the lens</h2>
+    <span class="kicker">About</span>
+    <h2>Meet Stan</h2>
   </div>
   <div class="about-grid">
-    <div class="about-photo reveal" data-ph="Add a photo of you outdoors">
-      <!-- Swap this block for: <img src="images/your-photo.jpg" alt="Stan outdoors" /> -->
+    <div class="about-video reveal">
+      <div class="intro-frame">
+        <iframe id="introVideo" title="Intro — meet Stan" loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <p class="video-tag">▶ My intro — press play</p>
     </div>
     <div class="about-copy reveal">
-      <p class="lead">Placeholder — send me your real story and I'll drop it in here.</p>
-      <p>Something like: how you got into the outdoors, the kind of trips you take, what you love shooting, and why brands should trust you with their gear and their story. A few honest sentences beat a polished paragraph every time.</p>
+      <p class="lead">I'm a university student carving out my place in the UGC world — with everything I make pointed at the outdoors.</p>
+      <p>Nature, camping, adventure and travel are where I feel at home, and where my content lives. I take brands and their gear into real conditions — misty summits, lakeside pitches, alpine trails — and turn the trip into short-form video people actually stop for.</p>
       <ul class="about-tags">
         <li>Camping &amp; backcountry</li>
         <li>Hiking &amp; trails</li>
         <li>Travel &amp; adventure</li>
-        <li>Gear reviews</li>
+        <li>Gear &amp; product reviews</li>
         <li>Short-form video</li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- ===== Nature Trips ===== -->
-<section id="trips" class="section trips">
+<!-- ===== Places I've visited recently ===== -->
+<section id="places" class="section places">
   <div class="section-head reveal">
-    <span class="kicker">02 — Nature trips</span>
-    <h2>Where the content comes from</h2>
-    <p class="section-intro">Real places, real conditions. Tell me the trips you want to feature — location, a line about it, and a photo — and I'll fill these in.</p>
+    <span class="kicker">On location</span>
+    <h2>Places I've visited recently</h2>
+    <p class="section-intro">Real trips, real conditions — the backdrop to everything I shoot. A few clips and photos from the road.</p>
   </div>
-  <div class="trip-grid" id="tripGrid"><!-- rendered by js/main.js --></div>
+
+  <div class="video-grid" id="placesGrid"><!-- travel videos, rendered by js/main.js --></div>
+
+  <div class="photo-gallery" id="photoGallery"><!-- photos, rendered by js/main.js --></div>
 </section>
 
-<!-- ===== Video Work ===== -->
+<!-- ===== Brand & product work ===== -->
 <section id="work" class="section work">
   <div class="section-head reveal">
-    <span class="kicker">03 — The work</span>
-    <h2>Selected videos</h2>
-    <p class="section-intro">Short-form, made for the feed. Tap any clip to play.</p>
+    <span class="kicker">The work</span>
+    <h2>Brand &amp; product work</h2>
+    <p class="section-intro">Product-focused UGC made for the feed. Tap any clip to play.</p>
   </div>
-  <div class="video-grid" id="videoGrid"><!-- rendered by js/main.js --></div>
+  <div class="video-grid" id="workGrid"><!-- product videos, rendered by js/main.js --></div>
 </section>
 
 <!-- ===== CTA / Contact ===== -->
@@ -104,12 +107,11 @@
   <div class="cta-inner reveal">
     <span class="kicker light">Let's work together</span>
     <h2>Got a brand that belongs outside?</h2>
-    <p>Send me the gear, the brief, or just the idea. I'll bring it into the wild and make content your audience actually stops for.</p>
+    <p>Send me the gear, the brief, or just the idea. I'll take it into the wild and make content your audience actually stops for.</p>
     <div class="cta-actions">
-      <a href="mailto:hello@stanugc.com" class="btn btn-primary" id="emailBtn">Email me</a>
-      <a href="#work" class="btn btn-ghost light">See the work again</a>
+      <a href="mailto:stanleydtsmith@outlook.com" class="btn btn-primary">Email me</a>
     </div>
-    <p class="cta-note">Replace the email above with your real one, and add your socials — just tell me the handles.</p>
+    <p class="cta-email">stanleydtsmith@outlook.com</p>
   </div>
 </section>
 
@@ -119,8 +121,8 @@
     <span class="brand-name">Stan<span class="brand-accent">UGC</span></span>
     <nav class="footer-links">
       <a href="#about">About</a>
-      <a href="#trips">Trips</a>
-      <a href="#work">Work</a>
+      <a href="#places">Places</a>
+      <a href="#work">Brand work</a>
       <a href="#contact">Contact</a>
     </nav>
     <p class="copyright">© <span id="year"></span> StanUGC — Outdoor &amp; adventure content creator.</p>

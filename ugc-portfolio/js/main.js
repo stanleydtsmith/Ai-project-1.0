@@ -1,69 +1,69 @@
 /* ==========================================================
-   StanUGC — site logic
+   StanUGC — site content + logic
    ----------------------------------------------------------
-   TO ADD/EDIT CONTENT, just change the arrays below.
-   - VIDEOS: paste a YouTube video ID + a caption.
-   - TRIPS:  name, location, blurb, and optional image file.
+   TO EDIT CONTENT, change the data below.
+   A YouTube "id" is the part of a link after /shorts/ or ?v=
+   e.g. youtube.com/shorts/L7Yf1K_uYgg  ->  "L7Yf1K_uYgg"
    ========================================================== */
 
-/* ---- 1. VIDEOS -------------------------------------------
-   The id is the part of a YouTube link after /shorts/ or ?v=
-   e.g. youtube.com/shorts/L7Yf1K_uYgg  ->  id: "L7Yf1K_uYgg"
---------------------------------------------------------------*/
-const VIDEOS = [
-  { id: "L7Yf1K_uYgg", caption: "" },
+/* 1. INTRO VIDEO — the one where you talk to camera in the car */
+const INTRO_ID = "L7Yf1K_uYgg";
+
+/* 2. PLACES I'VE VISITED — recent travel/adventure clips */
+const PLACES_VIDEOS = [
+  { id: "XCZQV0GAcYA", caption: "" },
+  { id: "b8mQyc4_dpg", caption: "" },
+  { id: "t3rXxNBLimA", caption: "" },
+  { id: "gU-g5Y__er8", caption: "" },
+];
+
+/* 3. BRAND & PRODUCT WORK — the product-focused clips */
+const WORK_VIDEOS = [
   { id: "WBum-Vdbyyc", caption: "" },
   { id: "Uf8nhhJL2DM", caption: "" },
   { id: "EEwIqnhPjhM", caption: "" },
   { id: "la-4Up1MsY4", caption: "" },
 ];
 
-/* ---- 2. TRIPS --------------------------------------------
-   Add "image" to point at a file in images/, e.g.
-   { name: "Snowdonia", location: "Wales", blurb: "...",
-     image: "images/snowdonia.jpg" }
-   Leave image out to use a colour placeholder.
---------------------------------------------------------------*/
-const TRIPS = [
-  { name: "Trip name", location: "Location", blurb: "One line about this trip — the conditions, the story, or the brand you shot for.", grad: "linear-gradient(160deg,#2f4a38,#6d8f5f)" },
-  { name: "Trip name", location: "Location", blurb: "Swap these placeholders for your real adventures — just send me the details.", grad: "linear-gradient(160deg,#3a4a63,#8aa2b8)" },
-  { name: "Trip name", location: "Location", blurb: "A photo makes each card pop; add one to images/ and reference it here.", grad: "linear-gradient(160deg,#6b4a2f,#d9a066)" },
+/* 4. PHOTOS — files live in images/. Caption shows on hover. */
+const PHOTOS = [
+  { src: "images/summit-trig.jpeg",        caption: "Summit push — trig point in the mist" },
+  { src: "images/camping-lake.jpeg",       caption: "Lakeside pitch at first light" },
+  { src: "images/sphinx-egypt.jpeg",       caption: "Giza, Egypt" },
+  { src: "images/campsite-mountains.jpeg", caption: "Basecamp under the peaks" },
 ];
 
 /* ---------------------------------------------------------- */
 
-function renderVideos() {
-  const grid = document.getElementById("videoGrid");
+const embed = (id, title) => `
+  <iframe src="https://www.youtube-nocookie.com/embed/${id}"
+    title="${title}" loading="lazy"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+
+function renderVideoGrid(elId, list, label) {
+  const grid = document.getElementById(elId);
   if (!grid) return;
-  grid.innerHTML = VIDEOS.map((v, i) => `
+  grid.innerHTML = list.map((v, i) => `
     <div class="video-card">
-      <div class="video-frame">
-        <iframe
-          src="https://www.youtube-nocookie.com/embed/${v.id}"
-          title="StanUGC video ${i + 1}"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen></iframe>
-      </div>
+      <div class="video-frame">${embed(v.id, `${label} ${i + 1}`)}</div>
       ${v.caption ? `<div class="video-cap">${v.caption}</div>` : ""}
     </div>`).join("");
 }
 
-function renderTrips() {
-  const grid = document.getElementById("tripGrid");
+function renderIntro() {
+  const frame = document.getElementById("introVideo");
+  if (frame) frame.src = `https://www.youtube-nocookie.com/embed/${INTRO_ID}`;
+}
+
+function renderPhotos() {
+  const grid = document.getElementById("photoGallery");
   if (!grid) return;
-  grid.innerHTML = TRIPS.map((t) => `
-    <article class="trip-card">
-      ${t.image
-        ? `<img src="${t.image}" alt="${t.name} — ${t.location}" loading="lazy" />`
-        : `<span class="trip-bg" style="background:${t.grad || "linear-gradient(160deg,#2f4a38,#6d8f5f)"}"></span>`}
-      <div class="trip-info">
-        <div class="loc">${t.location}</div>
-        <h3>${t.name}</h3>
-        <p>${t.blurb}</p>
-      </div>
-    </article>`).join("");
+  grid.innerHTML = PHOTOS.map((p) => `
+    <figure class="photo">
+      <img src="${p.src}" alt="${p.caption}" loading="lazy" />
+      <figcaption>${p.caption}</figcaption>
+    </figure>`).join("");
 }
 
 /* ---- Mobile nav ---- */
@@ -102,26 +102,25 @@ function initReveal() {
 
 /* ---- Active nav link on scroll ---- */
 function initActiveNav() {
-  const sections = ["about", "trips", "work", "contact"]
-    .map((id) => document.getElementById(id))
-    .filter(Boolean);
-  const linkFor = (id) => document.querySelector(`.nav-links a[href="#${id}"]`);
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
-      const link = linkFor(e.target.id);
-      if (!link) return;
-      if (e.isIntersecting) {
+      const link = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+      if (link && e.isIntersecting) {
         document.querySelectorAll(".nav-links a").forEach((a) => a.classList.remove("active"));
         link.classList.add("active");
       }
     });
   }, { rootMargin: "-45% 0px -50% 0px" });
-  sections.forEach((s) => io.observe(s));
+  ["about", "places", "work", "contact"]
+    .map((id) => document.getElementById(id))
+    .forEach((s) => { if (s) io.observe(s); });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  renderVideos();
-  renderTrips();
+  renderIntro();
+  renderVideoGrid("placesGrid", PLACES_VIDEOS, "Travel clip");
+  renderVideoGrid("workGrid", WORK_VIDEOS, "Brand clip");
+  renderPhotos();
   initNav();
   initReveal();
   initActiveNav();

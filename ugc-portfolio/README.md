@@ -1,51 +1,52 @@
 # StanUGC — Outdoor & Adventure UGC Portfolio
 
-A single-page portfolio site for StanUGC, an outdoor / nature / camping / adventure / travel content creator.
+A single-page portfolio for StanUGC — a university student creating outdoor,
+nature, camping, adventure and travel UGC.
 
 ## Structure
 
 ```
 ugc-portfolio/
-├── index.html        # the whole page
+├── index.html        # the page
 ├── css/style.css     # all styles
 ├── js/main.js        # content data + interactions
-├── images/           # photos + favicon
-└── videos/           # (optional) raw video files
+└── images/           # photos + favicon
 ```
 
-## How to update content (no coding needed for most of it)
+The page flows: **Hero → About (intro video) → Places I've visited recently
+(travel videos + photo gallery) → Brand & product work (product videos) →
+Contact**.
 
-All editable content lives in **`js/main.js`** in two arrays near the top.
+## Updating content (in `js/main.js`)
 
-### Videos
-Videos are YouTube embeds. For each clip, grab the ID from its link
-(`youtube.com/shorts/L7Yf1K_uYgg` → `L7Yf1K_uYgg`) and add a line:
+All videos and photos are defined at the top of `js/main.js`.
+
+**Videos** are YouTube embeds. Grab the ID from a link
+(`youtube.com/shorts/L7Yf1K_uYgg` → `L7Yf1K_uYgg`):
 
 ```js
-const VIDEOS = [
-  { id: "L7Yf1K_uYgg", caption: "REI tent field test" },
+const INTRO_ID = "L7Yf1K_uYgg";              // talk-to-camera intro
+const PLACES_VIDEOS = [{ id: "XCZQV0GAcYA", caption: "Dolomites day 1" }, ...];
+const WORK_VIDEOS   = [{ id: "WBum-Vdbyyc", caption: "Tent review" }, ...];
+```
+
+> Tip: set clips to **Unlisted** on YouTube so they don't show on your channel
+> or in search, but still play here.
+
+**Photos** live in `images/`. Add a file, then reference it:
+
+```js
+const PHOTOS = [
+  { src: "images/summit-trig.jpeg", caption: "Summit push in the mist" },
 ];
 ```
 
-> Tip: set the videos to **Unlisted** on YouTube so they don't show on your
-> channel or in search, but still play here.
-
-### Trips
-```js
-const TRIPS = [
-  { name: "Snowdonia", location: "Wales",
-    blurb: "Two nights wild camping above the clouds.",
-    image: "images/snowdonia.jpg" },   // optional — omit for a colour card
-];
-```
-
-### About text, email & socials
-Open **`index.html`** and edit:
-- the **About** section copy (search for "Placeholder"),
-- the email in the **Contact** section (`hello@stanugc.com`),
-- add a photo of yourself: replace the `.about-photo` block with
-  `<img src="images/you.jpg" alt="Stan outdoors" />`.
+## Other edits (in `index.html`)
+- About copy — the `.about-copy` block.
+- Hero background photo — set in `css/style.css` (`.hero-photo`, currently
+  `images/hero-dolomites.jpeg`).
+- Contact email — `stanleydtsmith@outlook.com` in the Contact section.
 
 ## Viewing locally
-Just open `index.html` in a browser, or run a static server from this folder:
-`python3 -m http.server` then visit `http://localhost:8000`.
+Open `index.html`, or run `python3 -m http.server` from this folder and visit
+`http://localhost:8000`.
