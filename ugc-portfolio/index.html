@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>StanUGC — Outdoor & Adventure UGC Creator</title>
+<meta name="description" content="StanUGC creates scroll-stopping outdoor, nature, camping and adventure content that makes brands feel the wild. Portfolio, trips and video work." />
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ===== Nav ===== -->
+<header id="nav">
+  <a href="#top" class="brand">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20 L9 8 l4 7 3-5 5 10 z"/></svg>
+    </span>
+    <span class="brand-name">Stan<span class="brand-accent">UGC</span></span>
+  </a>
+
+  <nav class="nav-links" id="navLinks">
+    <a href="#about">About</a>
+    <a href="#trips">Trips</a>
+    <a href="#work">Work</a>
+    <a href="#contact" class="nav-cta">Work with me</a>
+  </nav>
+
+  <button id="menuToggle" class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- ===== Hero ===== -->
+<section id="top" class="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <svg class="ridge ridge-back" viewBox="0 0 1440 320" preserveAspectRatio="none"><path d="M0,224 L120,197 240,240 360,181 480,213 600,160 720,208 840,165 960,213 1080,176 1200,224 1320,192 1440,229 L1440,320 L0,320 Z"/></svg>
+    <svg class="ridge ridge-mid" viewBox="0 0 1440 320" preserveAspectRatio="none"><path d="M0,256 L160,224 320,272 480,213 640,256 800,208 960,261 1120,224 1280,266 1440,240 L1440,320 L0,320 Z"/></svg>
+    <svg class="ridge ridge-front" viewBox="0 0 1440 320" preserveAspectRatio="none"><path d="M0,288 L180,256 360,293 540,261 720,288 900,256 1080,293 1260,261 1440,288 L1440,320 L0,320 Z"/></svg>
+  </div>
+
+  <div class="hero-inner">
+    <p class="eyebrow reveal">Outdoors · Nature · Camping · Adventure · Travel</p>
+    <h1 class="reveal">Outdoor UGC that makes brands <em>feel the wild.</em></h1>
+    <p class="hero-sub reveal">I'm Stan — a creator who takes gear, brands and stories into the backcountry and comes back with content that stops the scroll. Authentic, cinematic, and built to convert.</p>
+    <div class="hero-actions reveal">
+      <a href="#work" class="btn btn-primary">Watch my work</a>
+      <a href="#contact" class="btn btn-ghost">Work with me</a>
+    </div>
+  </div>
+
+  <a href="#about" class="scroll-hint" aria-label="Scroll down">↓</a>
+</section>
+
+<!-- ===== About ===== -->
+<section id="about" class="section about">
+  <div class="section-head reveal">
+    <span class="kicker">01 — About</span>
+    <h2>Behind the lens</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-photo reveal" data-ph="Add a photo of you outdoors">
+      <!-- Swap this block for: <img src="images/your-photo.jpg" alt="Stan outdoors" /> -->
+    </div>
+    <div class="about-copy reveal">
+      <p class="lead">Placeholder — send me your real story and I'll drop it in here.</p>
+      <p>Something like: how you got into the outdoors, the kind of trips you take, what you love shooting, and why brands should trust you with their gear and their story. A few honest sentences beat a polished paragraph every time.</p>
+      <ul class="about-tags">
+        <li>Camping &amp; backcountry</li>
+        <li>Hiking &amp; trails</li>
+        <li>Travel &amp; adventure</li>
+        <li>Gear reviews</li>
+        <li>Short-form video</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Nature Trips ===== -->
+<section id="trips" class="section trips">
+  <div class="section-head reveal">
+    <span class="kicker">02 — Nature trips</span>
+    <h2>Where the content comes from</h2>
+    <p class="section-intro">Real places, real conditions. Tell me the trips you want to feature — location, a line about it, and a photo — and I'll fill these in.</p>
+  </div>
+  <div class="trip-grid" id="tripGrid"><!-- rendered by js/main.js --></div>
+</section>
+
+<!-- ===== Video Work ===== -->
+<section id="work" class="section work">
+  <div class="section-head reveal">
+    <span class="kicker">03 — The work</span>
+    <h2>Selected videos</h2>
+    <p class="section-intro">Short-form, made for the feed. Tap any clip to play.</p>
+  </div>
+  <div class="video-grid" id="videoGrid"><!-- rendered by js/main.js --></div>
+</section>
+
+<!-- ===== CTA / Contact ===== -->
+<section id="contact" class="section cta">
+  <div class="cta-inner reveal">
+    <span class="kicker light">Let's work together</span>
+    <h2>Got a brand that belongs outside?</h2>
+    <p>Send me the gear, the brief, or just the idea. I'll bring it into the wild and make content your audience actually stops for.</p>
+    <div class="cta-actions">
+      <a href="mailto:hello@stanugc.com" class="btn btn-primary" id="emailBtn">Email me</a>
+      <a href="#work" class="btn btn-ghost light">See the work again</a>
+    </div>
+    <p class="cta-note">Replace the email above with your real one, and add your socials — just tell me the handles.</p>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <span class="brand-name">Stan<span class="brand-accent">UGC</span></span>
+    <nav class="footer-links">
+      <a href="#about">About</a>
+      <a href="#trips">Trips</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <p class="copyright">© <span id="year"></span> StanUGC — Outdoor &amp; adventure content creator.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
