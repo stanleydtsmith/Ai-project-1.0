@@ -11,10 +11,10 @@ const INTRO_ID = "L7Yf1K_uYgg";
 
 /* 2. PLACES I'VE VISITED — recent travel/adventure clips */
 const PLACES_VIDEOS = [
-  { id: "XCZQV0GAcYA", caption: "" },
-  { id: "b8mQyc4_dpg", caption: "" },
-  { id: "t3rXxNBLimA", caption: "" },
-  { id: "gU-g5Y__er8", caption: "" },
+  { id: "XCZQV0GAcYA", caption: "Dolomites 📍" },
+  { id: "b8mQyc4_dpg", caption: "Peak District 📍" },
+  { id: "t3rXxNBLimA", caption: "Brecon Beacons 📍" },
+  { id: "gU-g5Y__er8", caption: "North Wales 📍" },
 ];
 
 /* 3. BRAND & PRODUCT WORK — the product-focused clips */
@@ -27,33 +27,54 @@ const WORK_VIDEOS = [
 
 /* 4. PHOTOS — files live in images/. Caption shows on hover. */
 const PHOTOS = [
-  { src: "images/summit-trig.jpeg",        caption: "Summit push — trig point in the mist" },
-  { src: "images/camping-lake.jpeg",       caption: "Lakeside pitch at first light" },
-  { src: "images/sphinx-egypt.jpeg",       caption: "Giza, Egypt" },
-  { src: "images/campsite-mountains.jpeg", caption: "Basecamp under the peaks" },
+  { src: "images/summit-trig.jpeg",        caption: "Snowdon summit" },
+  { src: "images/camping-lake.jpeg",       caption: "Wildcamping in Peak District" },
+  { src: "images/sphinx-egypt.jpeg",       caption: "The Sphinx" },
+  { src: "images/campsite-mountains.jpeg", caption: "Camping in Dolomites" },
 ];
 
 /* ---------------------------------------------------------- */
 
-const embed = (id, title) => `
-  <iframe src="https://www.youtube-nocookie.com/embed/${id}"
-    title="${title}" loading="lazy"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+/* Clean "lite" facade: a poster thumbnail + play button, no YouTube chrome
+   at rest. The real player only loads on click (faster page, no uploader
+   name/title showing while scrolling). */
+const facade = (id, title) => `
+  <button class="video-frame lite" data-id="${id}" type="button" aria-label="Play ${title}">
+    <img class="poster" src="https://i.ytimg.com/vi/${id}/maxresdefault.jpg"
+      onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${id}/hqdefault.jpg'"
+      alt="${title}" loading="lazy" />
+    <span class="play-btn" aria-hidden="true"></span>
+  </button>`;
 
 function renderVideoGrid(elId, list, label) {
   const grid = document.getElementById(elId);
   if (!grid) return;
   grid.innerHTML = list.map((v, i) => `
     <div class="video-card">
-      <div class="video-frame">${embed(v.id, `${label} ${i + 1}`)}</div>
+      ${facade(v.id, v.caption || `${label} ${i + 1}`)}
       ${v.caption ? `<div class="video-cap">${v.caption}</div>` : ""}
     </div>`).join("");
 }
 
 function renderIntro() {
-  const frame = document.getElementById("introVideo");
-  if (frame) frame.src = `https://www.youtube-nocookie.com/embed/${INTRO_ID}`;
+  const frame = document.getElementById("introFrame");
+  if (frame) frame.innerHTML = facade(INTRO_ID, "Intro — meet Stan");
+}
+
+/* Swap a clicked poster for the actual autoplaying player */
+function initLitePlayers() {
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest(".video-frame.lite");
+    if (!btn) return;
+    const id = btn.dataset.id;
+    const wrap = document.createElement("div");
+    wrap.className = "video-frame";
+    wrap.innerHTML = `
+      <iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
+        title="Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+    btn.replaceWith(wrap);
+  });
 }
 
 function renderPhotos() {
@@ -121,6 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderVideoGrid("placesGrid", PLACES_VIDEOS, "Travel clip");
   renderVideoGrid("workGrid", WORK_VIDEOS, "Brand clip");
   renderPhotos();
+  initLitePlayers();
   initNav();
   initReveal();
   initActiveNav();

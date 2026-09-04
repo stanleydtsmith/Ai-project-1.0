@@ -24,8 +24,8 @@
 
   <nav class="nav-links" id="navLinks">
     <a href="#about">About</a>
+    <a href="#work">Work</a>
     <a href="#places">Places</a>
-    <a href="#work">Brand work</a>
     <a href="#contact" class="nav-cta">Work with me</a>
   </nav>
 
@@ -39,9 +39,9 @@
   <img class="hero-photo" src="images/hero-dolomites.jpeg" alt="" aria-hidden="true" />
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-inner">
-    <p class="eyebrow">Outdoors · Nature · Camping · Adventure · Travel</p>
-    <h1>Outdoor UGC that makes brands <em>feel the wild.</em></h1>
-    <p class="hero-sub">I'm Stan — a creator who takes gear, brands and stories into the mountains and comes back with content that stops the scroll.</p>
+    <p class="eyebrow">Outdoors · Adventure · Travel &amp; travel tech · Fitness &amp; wellbeing</p>
+    <h1>UGC that makes brands <em>feel the wild.</em></h1>
+    <p class="hero-sub">I'm Stan — a creator who takes gear, brands and stories out into the world and comes back with content that stops the scroll. Rooted in the outdoors, open to the whole adventure.</p>
     <div class="hero-actions">
       <a href="#work" class="btn btn-primary">See my brand work</a>
       <a href="#contact" class="btn btn-ghost light">Work with me</a>
@@ -58,25 +58,32 @@
   </div>
   <div class="about-grid">
     <div class="about-video reveal">
-      <div class="intro-frame">
-        <iframe id="introVideo" title="Intro — meet Stan" loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
+      <div id="introFrame" class="intro-frame"></div>
       <p class="video-tag">▶ My intro — press play</p>
     </div>
     <div class="about-copy reveal">
-      <p class="lead">I'm a university student carving out my place in the UGC world — with everything I make pointed at the outdoors.</p>
-      <p>Nature, camping, adventure and travel are where I feel at home, and where my content lives. I take brands and their gear into real conditions — misty summits, lakeside pitches, alpine trails — and turn the trip into short-form video people actually stop for.</p>
+      <p class="lead">I'm a university student carving out my place in the UGC world — rooted in the outdoors, but open to the whole adventure.</p>
+      <p>Camping, hiking and travel are where I feel at home, and where my content lives — but I'm just as happy shooting travel tech, or fitness and wellbeing. I take brands and their gear into real conditions and turn the trip into short-form video people actually stop for.</p>
       <ul class="about-tags">
-        <li>Camping &amp; backcountry</li>
-        <li>Hiking &amp; trails</li>
-        <li>Travel &amp; adventure</li>
+        <li>Outdoors &amp; camping</li>
+        <li>Adventure &amp; travel</li>
+        <li>Travel tech</li>
+        <li>Fitness &amp; wellbeing</li>
         <li>Gear &amp; product reviews</li>
         <li>Short-form video</li>
       </ul>
     </div>
   </div>
+</section>
+
+<!-- ===== My UGC work ===== -->
+<section id="work" class="section work">
+  <div class="section-head reveal">
+    <span class="kicker">The work</span>
+    <h2>My UGC work</h2>
+    <p class="section-intro">Product-focused, made for the feed. Tap any clip to play.</p>
+  </div>
+  <div class="video-grid" id="workGrid"><!-- product videos, rendered by js/main.js --></div>
 </section>
 
 <!-- ===== Places I've visited recently ===== -->
@@ -90,16 +97,6 @@
   <div class="video-grid" id="placesGrid"><!-- travel videos, rendered by js/main.js --></div>
 
   <div class="photo-gallery" id="photoGallery"><!-- photos, rendered by js/main.js --></div>
-</section>
-
-<!-- ===== Brand & product work ===== -->
-<section id="work" class="section work">
-  <div class="section-head reveal">
-    <span class="kicker">The work</span>
-    <h2>Brand &amp; product work</h2>
-    <p class="section-intro">Product-focused UGC made for the feed. Tap any clip to play.</p>
-  </div>
-  <div class="video-grid" id="workGrid"><!-- product videos, rendered by js/main.js --></div>
 </section>
 
 <!-- ===== CTA / Contact ===== -->
@@ -121,8 +118,8 @@
     <span class="brand-name">Stan<span class="brand-accent">UGC</span></span>
     <nav class="footer-links">
       <a href="#about">About</a>
+      <a href="#work">Work</a>
       <a href="#places">Places</a>
-      <a href="#work">Brand work</a>
       <a href="#contact">Contact</a>
     </nav>
     <p class="copyright">© <span id="year"></span> StanUGC — Outdoor &amp; adventure content creator.</p>
